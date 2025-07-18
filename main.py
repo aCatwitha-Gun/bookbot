@@ -1,8 +1,8 @@
 from stats import get_word_count
 from stats import get_character_count
 from stats import list_of_dictionaries_by_char
+import sys
 
-file_path = "books/frankenstein.txt"
 total_width = 50
 report_header = " BOOKBOT ".center(total_width, '=')
 report_word_count = " Word Count ".center(total_width, '-')
@@ -35,6 +35,11 @@ def run_report(file_path, word_count, sort_count):
 
 # function to input file path of book
 def main():
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    file_path = sys.argv[1]
     book_content = get_book_text(file_path)
     word_count = get_word_count(book_content)
     character_count = get_character_count(book_content)
@@ -45,4 +50,6 @@ def main():
     # print(run_report)
     run_report(file_path, word_count, sort_count)
 
+
 main()
+
