@@ -34,7 +34,7 @@ def run_report(file_path, word_count, sort_count):
 
 
 # function to input file path of book
-def main():
+def main(): # check to exit script if two arguments are not used
     if len(sys.argv) != 2:
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
@@ -44,10 +44,6 @@ def main():
     word_count = get_word_count(book_content)
     character_count = get_character_count(book_content)
     sort_count = list_of_dictionaries_by_char(character_count)
-    # print(f"{word_count} words found in the document")
-    # print(character_count)
-    # print(sort_count)
-    # print(run_report)
     run_report(file_path, word_count, sort_count)
 
 
